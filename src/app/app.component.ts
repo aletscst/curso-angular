@@ -7,6 +7,15 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   
-  public title:string = 'capacitacion';
+  public datos:string = '';
+  public res:string = '';
+
+  public imagen:string = 'https://miro.medium.com/max/3000/1*-f6StBRZQiuOAz7fdqWFKw.png';
+
+  ordenar(): void{
+    let separados:string[] = this.datos.split(',');
+    separados.sort();
+    this.res = separados.join();
+  }
 
 }

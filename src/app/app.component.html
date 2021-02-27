@@ -1,10 +1,6 @@
-<h1 class="prueba">{{title}}</h1>
+<h1>Hola</h1>
 
-<button type="button" class="btn btn-primary">Primary</button>
-<button type="button" class="btn btn-secondary">Secondary</button>
-<button type="button" class="btn btn-success">Success</button>
-<button type="button" class="btn btn-danger">Danger</button>
-<button type="button" class="btn btn-warning">Warning</button>
-<button type="button" class="btn btn-info">Info</button>
-<button type="button" class="btn btn-light">Light</button>
-<button type="button" class="btn btn-dark">Dark</button>
+<p>inserte numeros separados por "," <input type="text" [(ngModel)]="datos" placeholder="ej 1,6,3,3,4"></p>
+<button (click)="ordenar()">Ordenar</button>
+
+<p>El resultado es: {{res}}</p>
