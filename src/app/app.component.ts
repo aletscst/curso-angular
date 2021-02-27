@@ -10,7 +10,12 @@ export class AppComponent {
   public datos:string = '';
   public res:string = '';
 
-  public imagen:string = 'https://miro.medium.com/max/3000/1*-f6StBRZQiuOAz7fdqWFKw.png';
+  public alumnos = [
+    {id:1,nombre:'Alex'},
+    {id:2,nombre:'Areli'},
+    {id:3,nombre:'Neto'},
+    {id:4,nombre:'Beto'}
+  ]
 
   ordenar(): void{
     let separados:string[] = this.datos.split(',');
