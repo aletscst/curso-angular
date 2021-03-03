@@ -7,18 +7,24 @@ import { AppComponent } from './app.component';
 import { BookComponent } from './book/book.component';
 import { ExpPipe } from './exp.pipe';
 import { TecnologicosComponent } from './tecnologicos/tecnologicos.component';
+import { HeaderComponent } from './header/header.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatToolbarModule } from '@angular/material/toolbar';
 
 @NgModule({
   declarations: [
     AppComponent,
     BookComponent,
     ExpPipe,
-    TecnologicosComponent
+    TecnologicosComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule,
+    MatToolbarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -5,7 +5,8 @@ import { TecnologicosComponent } from './tecnologicos/tecnologicos.component';
 
 const routes: Routes = [
   {path:'books', component:BookComponent},
-  {path:'tecnologicos', component:TecnologicosComponent}
+  {path:'tecnologicos', component:TecnologicosComponent},
+  {path:'admin',loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule)}
 ];
 
 @NgModule({
