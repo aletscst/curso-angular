@@ -4,6 +4,7 @@ import { BookComponent } from './book/book.component';
 import { TecnologicosComponent } from './tecnologicos/tecnologicos.component';
 
 const routes: Routes = [
+  {path:'',redirectTo:'admin',pathMatch:'full'},
   {path:'books', component:BookComponent},
   {path:'tecnologicos', component:TecnologicosComponent},
   {path:'admin',loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule)}
