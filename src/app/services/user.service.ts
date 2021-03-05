@@ -14,11 +14,20 @@ export class UserService {
   constructor(private http:HttpClient) { }
 
   getUsers():Observable<User[]>{
+    //return of(USERS)
     return this.http.get<User[]>(`${environment.apiUrl}/users`);
   }
   
   deleteUser(id:any):Observable<BasicResponse>{
     return this.http.delete<BasicResponse>(`${environment.apiUrl}/users/${id}`);
+  }
+
+  addUser(user:User):Observable<BasicResponse>{
+    return this.http.post<BasicResponse>(`${environment.apiUrl}/users`,user);
+  }
+
+  updateUser(user:User){
+    return this.http.put<BasicResponse>(`${environment.apiUrl}/users/${user.id}`,user);
   }
 
 }
