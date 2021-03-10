@@ -40,7 +40,6 @@ export class ModalUserComponent implements OnInit {
   clean(){
     this.formUser.reset();
     console.log(this.formUser.value);
-    
   }
 
   close(){
@@ -65,6 +64,7 @@ export class ModalUserComponent implements OnInit {
     this.userService.addUser(this.formUser.value).subscribe(data => {
       console.log(data);
       alert(data.message);
+      this.dialogRef.close('Usuario creado');
     }, error => {
       console.error(error);
       alert('Error al guardar');
