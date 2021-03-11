@@ -29,7 +29,6 @@ export class UsersComponent implements OnInit {
     }, e => {
       console.log(e.error.message);
       alert(e.error.message);
-      this.authService.logout();
     });
 
   }

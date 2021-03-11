@@ -10,14 +10,34 @@ import { Login, RespLogin } from '../models/login';
 })
 export class AuthService {
 
-  constructor(private http:HttpClient, private router:Router) { }
+  public user: RespLogin;
 
-  login(log:Login):Observable<RespLogin>{
+  constructor(private http: HttpClient, private router: Router) {
+
+    if (localStorage.getItem('user')) {
+      this.user = JSON.parse(localStorage.getItem('user') || '');
+    } else {
+      this.user = {
+        token: '',
+        user: { id: 0, name: '', type: '' }
+      }
+    }
+  }
+
+  login(log: Login): Observable<RespLogin> {
     return this.http.post<RespLogin>(`${environment.apiUrl}/login`, log);
   }
 
-  logout(){
+  logout() {
     localStorage.removeItem('user');
+    this.user = {
+      token: '',
+      user: { id: 0, name: '', type: '' }
+    }
     this.router.navigate(['login']);
+  }
+
+  isLogged():boolean{
+    return localStorage.getItem('user') ? true : false;
   }
 }

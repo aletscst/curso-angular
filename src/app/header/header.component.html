@@ -2,7 +2,10 @@
     <mat-toolbar-row>
         <span>Libreria</span>
         <span class="example-spacer"></span>
-        <a [routerLink]="['/admin/users']" routerLinkActive="activate" class="item-header">Usuarios</a>
-        <a [routerLink]="['/admin/books']" routerLinkActive="activate" class="item-header">Libros</a>
-      </mat-toolbar-row>
-  </mat-toolbar>
+        <div *ngIf="authService.user.token != ''">
+            <a [routerLink]="['/admin/users']" routerLinkActive="activate" class="item-header">Usuarios</a>
+            <a [routerLink]="['/admin/books']" routerLinkActive="activate" class="item-header">Libros</a>
+            <button (click)="logout()">Salir</button>
+        </div>
+    </mat-toolbar-row>
+</mat-toolbar>

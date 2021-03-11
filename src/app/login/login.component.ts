@@ -25,7 +25,14 @@ export class LoginComponent implements OnInit {
     if(localStorage.getItem('user')){
       console.log('este usuario ya entro');
       let user:RespLogin = JSON.parse(localStorage.getItem('user')||'');
-      console.log(`usuario: ${user.user.name}`);
+      switch (user.user.type) {
+        case 'ADMIN':
+          this.router.navigate(['admin']);
+          break;
+      
+        default: this.router.navigate(['login']);
+          break;
+      }
       
     }else{
       console.log('usuario sin entrar');
@@ -38,6 +45,7 @@ export class LoginComponent implements OnInit {
       
       localStorage.setItem('user',JSON.stringify(resp));
 
+      this.authService.user = resp;
       switch (resp.user.type) {
         case 'ADMIN':
           this.router.navigate(['admin']);
