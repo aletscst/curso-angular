@@ -5,7 +5,7 @@
         <div *ngIf="authService.user.token != ''">
             <a [routerLink]="['/admin/users']" routerLinkActive="activate" class="item-header">Usuarios</a>
             <a [routerLink]="['/admin/books']" routerLinkActive="activate" class="item-header">Libros</a>
-            <button (click)="logout()">Salir</button>
+            <button type="button" (click)="logout()" class="btn exit-btn">Salir</button>
         </div>
     </mat-toolbar-row>
 </mat-toolbar>

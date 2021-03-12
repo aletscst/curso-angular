@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Login, RespLogin } from '../models/login';
+import { JwtHelperService } from "@auth0/angular-jwt";
 
 @Injectable({
   providedIn: 'root'
@@ -11,6 +12,7 @@ import { Login, RespLogin } from '../models/login';
 export class AuthService {
 
   public user: RespLogin;
+  private jwtHelper = new JwtHelperService();
 
   constructor(private http: HttpClient, private router: Router) {
 
@@ -38,6 +40,10 @@ export class AuthService {
   }
 
   isLogged():boolean{
-    return localStorage.getItem('user') ? true : false;
+    if(localStorage.getItem('user')){
+      let usr:RespLogin = JSON.parse(localStorage.getItem('user') || '');
+      return !this.jwtHelper.isTokenExpired(usr.token);
+    }else
+      return false;
   }
 }

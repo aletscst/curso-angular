@@ -3,10 +3,19 @@
   }
 
 .item-header{
-    color: white;
+    color: rgb(204, 204, 204);
     margin: 0 10px;
+    font-size: 18px;
 }
 
 .activate{
-    color: purple;
+    color: white;
+    border-bottom: solid;
+    font-size: 20px;
+}
+
+.exit-btn{
+    color: #fff;
+    background-color: #003d7d;
+    border-color: #000000;
 }
