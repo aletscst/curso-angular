@@ -1,0 +1,46 @@
+<!--
+<h1>Hola</h1>
+
+<p>inserte numeros separados por "," <input type="text" [(ngModel)]="datos" placeholder="ej 1,6,3,3,4"></p>
+<button (click)="ordenar()">Ordenar</button>
+
+<p>El resultado es: {{res}}</p>
+<ul>
+    <div *ngFor="let alumno of alumnos">
+        <li *ngIf="alumno.id %2 == 0" class="elemento">{{alumno.nombre}} </li>
+    </div>
+</ul>
+
+<ul>
+    <div *ngFor="let alumno of alumnos">
+        <div [ngSwitch]="alumno.id">
+            <li *ngSwitchCase="1">{{alumno.nombre}} </li>
+            <li *ngSwitchCase="3">{{alumno.nombre}} </li>
+            <li *ngSwitchDefault>{{alumno.id}} </li>
+        </div>
+    </div>
+</ul>
+-->
+
+<h1 style="text-align: center;">Tecnologicos</h1>
+
+<div class="container">
+    <p class="fecha">{{fecha | date: 'dd/MM/yyyy'}}</p>
+    <input type="text" [(ngModel)]="numero">
+    <p>{{numero | exp}}</p>
+    <div class="row">
+        <div *ngFor="let tec of tecnologicos" class="col-md-4">
+            <div class="card">
+                <div style="text-align: center;">
+                    <img  [src]="tec.imagen" width="200px" alt="Card image cap">
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">{{tec.nombre | lowercase}}</h5>
+                    <p *ngIf="idShow == tec.id" class="card-text">{{tec.descripcion}}</p>
+                    <a *ngIf="idShow != tec.id" class="btn btn-primary" style="color: white;" (click)="mostrar(tec.id)">Mostrar Mas</a>
+                    <a *ngIf="idShow == tec.id" class="btn btn-primary" style="color: white;" (click)="mostrar(0)">Mostrar Menos</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

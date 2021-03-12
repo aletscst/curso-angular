@@ -1,0 +1,49 @@
+<h1 mat-dialog-title>Datos del Libro</h1>
+<div mat-dialog-content>
+    <form [formGroup]="formBook">
+        <div class="row">
+            <div class="col-md-3">
+                <img *ngIf="formBook.controls['image'].value == null"
+                    src="https://image.flaticon.com/icons/png/512/33/33277.png" width="150px" alt="img book">
+                <img *ngIf="formBook.controls['image'].value != null" [src]="formBook.controls['image'].value"
+                    width="150px" alt="img book">
+            </div>
+            <div class="col-md-9">
+                <div class="row">
+                    <div class="col-md-6">
+
+                        <label for="last_name">Titulo</label>
+                        <input id="last_name" formControlName="title" type="text" class="form-control"
+                            placeholder="Titulo del libro">
+
+                        <label for="name">Codigo</label>
+                        <input id="name" formControlName="code" type="text" class="form-control"
+                            placeholder="ISBN">
+                    </div>
+                    <div class="col-md-6">
+
+                        <label for="email">Autor</label>
+                        <input id="email" formControlName="author" type="text" class="form-control"
+                            placeholder="nombre ap">
+
+                        <label for="edition">Edición</label>
+                        <input id="edition" formControlName="edition" type="text" class="form-control"
+                            placeholder="1ra, 2da, 3ra ...">
+                    </div>
+                </div>
+
+                <label for="url">url Imagen</label>
+                <input id="url" formControlName="image" type="text" class="form-control" placeholder="url">
+
+            </div>
+        </div>
+        <br>
+        <label for="address">Descripcion</label>
+        <textarea id="address" formControlName="description" rows="4" class="form-control"></textarea>
+    </form>
+</div>
+<div mat-dialog-actions>
+    <button type="button" class="btn btn-success" (click)="sendBook()">Enviar</button>
+    <button type="button" class="btn btn-primary" (click)="clean()">Limpiar</button>
+    <button type="button" class="btn btn-danger" (click)="close()">Cerrar</button>
+</div>

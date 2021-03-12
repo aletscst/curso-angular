@@ -1,0 +1,16 @@
+<div class="login">
+    <div class="card">
+        <div class="card-body">
+            <h2 class="card-title">Login</h2>
+            <form [formGroup]="formUser" (ngSubmit)="send()">
+                <label for="mail">email</label>
+                <input id="mail" type="email" formControlName="email" class="form-control" placeholder="example@domain.com">
+
+                <label for="psw">Password</label>
+                <input id="psw" type="password" formControlName="password" class="form-control" placeholder="">
+                
+                <button type="submit" class="btn btn-success button-send">Entrar</button>
+            </form>
+        </div>
+    </div>
+</div>
